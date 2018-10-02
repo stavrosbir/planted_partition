@@ -37,29 +37,29 @@ def randspins(n):
 # def randspin():
 # 	return 1 if r.random() < 0.5 else -1
 
-def take_two2(n, spins):
-	first = int(r.random() * n)
-	temp = int(r.random() * (n/2))
+# def take_two2(n, spins):
+# 	first = int(r.random() * n)
+# 	temp = int(r.random() * (n/2))
 
-	l = [i for i in xrange(n) if spins[i] != spins[first]]
-	second = l[temp]
-	print first, second
+# 	l = [i for i in xrange(n) if spins[i] != spins[first]]
+# 	second = l[temp]
+# 	print first, second
 
-	# second = 0
-	# while second < n and temp >= 0:
-	# 	if spins[second] != spins[first]:
-	# 		temp -= 1
-	# 	second += 1
+# 	# second = 0
+# 	# while second < n and temp >= 0:
+# 	# 	if spins[second] != spins[first]:
+# 	# 		temp -= 1
+# 	# 	second += 1
 
-	return first, second
+# 	return first, second
 
-def take_two(n):
-	first = int(r.random() * n)
-	second = int(r.random() * (n-1))
-	return first, second if second < first else (second+1)
+# def take_two(n):
+# 	first = int(r.random() * n)
+# 	second = int(r.random() * (n-1))
+# 	return first, second if second < first else (second+1)
 
-def delta_energy(G, spins, p):
-	return 2 * spins[p] * sum([spins[j] for j in G[p]])
+# def delta_energy(G, spins, p):
+# 	return 2 * spins[p] * sum([spins[j] for j in G[p]])
 
 def eval_clustering(spins):
 	n = len(spins)
@@ -87,17 +87,6 @@ def ising_on_graph(G):
 			# print eval_clustering(spins)
 			# print_progress(100.0*i/iterations)
 			temperature /= 1.0233
-
-		# p1, p2 = take_two(n)
-		# # p1, p2 = take_two2(n, spins)
-		# if spins[p1] != spins[p2]:
-		# # while spins[p1] == spins[p2]:
-		# # 	p1, p2 = take_two(n)
-
-		# 	e = delta_energy(G, spins, p1) + delta_energy(G, spins, p2)
-		# 	if r.random() < exp(-e/temperature):
-		# 		spins[p1] *= -1
-		# 		spins[p2] *= -1
 
 		particle = int(r.random() * n)
 		spin = spins[particle]
